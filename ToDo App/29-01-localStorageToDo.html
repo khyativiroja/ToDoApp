@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="29-01-localStorageToDo.css">
+    <script>
+        index = 1;
+        let listArray = [];
+        let background_color = ['#c2c3f3', '#c9b8da', '#edc4d6', '#ffdce2', '#ffeae5'];
+        let pvalue = "";
+        let inc = 1;
+        function displayToDo() {
+            let bg_index = 0;
+            listArray.forEach((value, index) => {
+                let lastdegit = Math.abs(index % 10);
+
+                console.log(bg_index);
+                pvalue += `<div class='list-div'style='background-color:${background_color[bg_index]}'><div class='start-element'><input type='checkbox' id='checkbox-${index}' class='round-checkbox'> ${value}</div><div class='end-element'> <img src='../ToDo App/images/icons8-edit.png' onClick='editToDo(${index})' /> <img src='../ToDo App/images/icons8-delete-64.png' onClick='deleteToDo(${index})' ></div></div><br/>`
+                bg_index = (lastdegit > 4) ? bg_index - 1 : bg_index + 1;
+            });
+            document.getElementById('result').innerHTML = pvalue;
+            pvalue = "";
+        }
+        function editToDo(index) {
+            const newValue = prompt("Edit your task:", listArray[index]);
+            if (newValue !== null && newValue.trim() !== "") {
+                listArray[index] = newValue.trim();
+                displayToDo();
+            }
+        }
+        function deleteToDo(index) {
+            listArray.splice(index, 1);
+            displayToDo();
+        }
+        function deleteSelected() {
+            listArray = listArray.filter((_, index) => {
+                const checkbox = document.getElementById(`checkbox-${index}`);
+                return !checkbox || !checkbox.checked;
+            });
+            displayToDo();
+        }
+        function add_todo() {
+            let value = document.getElementById('id-todo').value.trim();
+            if (value === "") {
+                alert("Please enter a task.");
+                return;
+            }
+            listArray.push(document.getElementById('id-todo').value);
+            document.getElementById('id-todo').value = "";
+            displayToDo();
+        }
+    </script>
+</head>
+
+<body>
+    <div class="note-container">
+        <div class="header-div">
+            <h1>TO-DO-LIST <label> Planner</label></h1>
+        </div>
+        <div class="body-div">
+            <div>
+                <p id="result"></p>
+            </div>
+            <div class="delete-div">
+                <img src="../ToDo App/images/icons8-delete.gif" alt="Animated illustration" width="30" height="30"
+                    onclick="deleteSelected()" />
+
+            </div>
+            <div class="todo-div">
+                Notes:<br />
+                <textarea name="txt_todo" id="id-todo" class="note-textarea" rows="2"></textarea>
+                <button class="button" onclick="add_todo()">Add List</button>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+
+  h1{
+    color: #98616c;
+  }  
+  .header-div{
+    text-align: center;
+  }
+  label{
+    color: #5f618e;
+    font-family:"Lucida Handwriting", cursive;
+    font-weight: 100;
+    font-size: xxx-large;
+  }
+  .note-container{
+    max-width: 600px;
+    border: 2px solid #d6cde5;
+    border-radius: 10px;
+    padding: 10px 15px;
+    background-color: white;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.05);
+  }
+  .todo-div{color: #555698;
+    border: 3px solid #5f618e;
+    border-radius: 13px;
+    padding: 8px;
+  }
+  textarea{
+    width: 100%;
+    line-height: 24px;
+    font-size: 16px;
+    resize: none;
+    outline: none;
+    /* design for line in notes */
+    background-image: repeating-linear-gradient(
+        to bottom,
+        transparent,
+        transparent 23px,
+        #555698 24px
+    );
+    background-size: 100% 24px;
+    background-attachment: local;
+    border:0px solid black
+    ;
+    
+    }
+    .list-div{
+      background: pink;
+      border-radius: 30px;
+      line-height: 30px;
+      padding: 5px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+     }
+  
+     .list-div img{
+      width: 25px;
+     }
+     .start-element{
+      align-items: center;
+      display: flex;
+      gap: 5px;
+     }
+     .end-element {
+      padding: 0 10px;
+      display: flex;
+      align-items: center;
+    }
+    .delete-div img {
+      cursor: pointer;
+      transition: transform 0.2s ease;
+  }
+  
+  .delete-div img:hover {
+      transform: scale(1.2);
+  }
+     .round-checkbox {
+      appearance: none;         
+      width: 20px;
+      height: 20px;
+      border: 2px solid #694584;
+      border-radius: 6px;        
+      cursor: pointer;
+      position: relative;
+      
+  }
+  
+  .round-checkbox:checked {
+      background-color: #ba83e5;
+  }
+  .button {
+    background-color: #7454b3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+    background-color: #7454b3;
+    transform: scale(1.05);
+}
+
+.button:active {
+    transform: scale(0.98);
+    background-color: #7454b3;
+}
+
+  
